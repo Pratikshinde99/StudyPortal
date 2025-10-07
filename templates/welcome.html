@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - SPPU Study Material Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Enhanced Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">
+        <div class="navbar-logo-icon">📚</div>
+        <div class="navbar-logo-text">StudyPortal</div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="/" class="navbar-link">Home</a></li>
+        <li><a href="/semesters" class="navbar-link">Browse Materials</a></li>
+        <li><a href="/login" class="navbar-link">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Enhanced Welcome Section -->
+  <main class="welcome-section">
+    <div class="welcome-content fade-in-up">
+      <h1 class="welcome-title">
+        SPPU Study Material Portal
+        <br>
+        <span style="font-size: 0.7em; opacity: 0.8;">For Information Technology</span>
+      </h1>
+      <p class="welcome-subtitle">
+        Access organized semester-wise study materials, previous year papers, and resources
+        designed specifically for SPPU IT students. Easy learning and preparation made simple.
+      </p>
+      <div class="flex gap-2 justify-center mt-3">
+        <a href="/semesters" class="welcome-cta">
+          <span>🎓 Browse Materials</span>
+        </a>
+        <a href="/login" class="btn btn-secondary">
+          <span>👨‍💼 Admin Login</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Optional: Add some stats or features -->
+  <section class="container mt-3">
+    <div class="grid grid-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title">📚 Organized Content</h3>
+          <p class="card-subtitle">Semester-wise structured materials</p>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title">⚡ Quick Access</h3>
+          <p class="card-subtitle">Fast download and viewing</p>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title">🎯 Student Focused</h3>
+          <p class="card-subtitle">Designed for SPPU IT students</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

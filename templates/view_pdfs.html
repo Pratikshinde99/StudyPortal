@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Study Materials - SPPU Study Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Enhanced Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">
+        <div class="navbar-logo-icon">📚</div>
+        <div class="navbar-logo-text">StudyPortal</div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="/" class="navbar-link">Home</a></li>
+        <li><a href="/semesters" class="navbar-link">Browse Materials</a></li>
+        <li><a href="/pdfs" class="navbar-link">All PDFs</a></li>
+        <li><a href="/logout" class="navbar-link">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h1 class="card-title">📋 All Study Materials</h1>
+        <p class="card-subtitle">Complete collection of uploaded study materials</p>
+        <div class="flex gap-2 justify-center mt-2">
+          <a href="/semesters" class="btn btn-secondary">← Browse by Semester</a>
+          <a href="/upload" class="btn btn-primary">📤 Upload New</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All PDFs Section -->
+  <div class="container">
+    {% if files %}
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">📚 Available Materials</h2>
+          <p class="card-subtitle">{{ files|length }} file{{ 's' if files|length != 1 else '' }} available across all semesters</p>
+        </div>
+        <div class="card-body">
+          <div class="file-list">
+            {% for file in files %}
+              <div class="file-item">
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">
+                    {{ file.semester }} - {{ file.subject }}
+                  </h4>
+                  <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); font-size: 0.9rem;">
+                    📄 {{ file.filename }}
+                  </p>
+                  <p style="margin: 0; color: var(--text-muted); font-size: 0.8rem;">
+                    Uploaded: {{ file.get('_id', 'N/A')|string|truncate(10) }}
+                  </p>
+                </div>
+                <div class="flex gap-1">
+                  <a href="/pdf/{{ file.file_id }}" class="btn btn-primary" target="_blank">
+                    📥 Download
+                  </a>
+                  <a href="/pdfs/{{ file.semester }}/{{ file.subject }}" class="btn btn-secondary">
+                    View Subject
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="card text-center">
+        <div class="card-body">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
+          <h2 class="card-title">No Materials Available</h2>
+          <p class="card-subtitle">No study materials have been uploaded yet.</p>
+          <div class="flex gap-2 justify-center mt-3">
+            <a href="/semesters" class="btn btn-secondary">← Browse Semesters</a>
+            <a href="/upload" class="btn btn-primary">📤 Upload First Material</a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h3 class="card-title">🎯 Quick Actions</h3>
+        <div class="flex gap-2 justify-center mt-2">
+          <a href="/semesters" class="btn btn-secondary">← Browse by Semester</a>
+          <a href="/upload" class="btn btn-primary">📤 Upload New Material</a>
+          <a href="/logout" class="btn btn-secondary">🚪 Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

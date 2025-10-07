@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semesters - SPPU Study Material Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Enhanced Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">
+        <div class="navbar-logo-icon">📚</div>
+        <div class="navbar-logo-text">StudyPortal</div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="/" class="navbar-link">Home</a></li>
+        <li><a href="/semesters" class="navbar-link">Browse Materials</a></li>
+        <li><a href="/login" class="navbar-link">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h1 class="card-title">📖 Select Your Semester</h1>
+        <p class="card-subtitle">Choose your semester to access study materials and resources</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Semester Cards -->
+  <div class="container">
+    <div class="grid grid-2">
+      <!-- Semester 1 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">📊 Semester 1</h2>
+          <p class="card-subtitle">Basic Engineering Sciences</p>
+        </div>
+        <div class="card-body">
+          <p>Foundation subjects including Mathematics, Physics, Basic Electrical Engineering, and Engineering Graphics.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-secondary">5 Subjects</span>
+          <a href="/pdfs/SEM1" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+
+      <!-- Semester 2 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">🔬 Semester 2</h2>
+          <p class="card-subtitle">Engineering Fundamentals</p>
+        </div>
+        <div class="card-body">
+          <p>Core engineering subjects including Chemistry, Engineering Mechanics, and Programming fundamentals.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-secondary">5 Subjects</span>
+          <a href="/pdfs/SEM2" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+
+      <!-- Semester 3 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">📚 Semester 3</h2>
+          <p class="card-subtitle">Core IT subjects and foundational concepts</p>
+        </div>
+        <div class="card-body">
+          <p>Access study materials for Semester 3 subjects including Data Structures, Object Oriented Programming, and more.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-secondary">5 Subjects</span>
+          <a href="/pdfs/SEM3" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+
+      <!-- Semester 4 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">🔬 Semester 4</h2>
+          <p class="card-subtitle">Advanced concepts and practical applications</p>
+        </div>
+        <div class="card-body">
+          <p>Explore materials for Semester 4 covering advanced programming, databases, and system design.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-secondary">5 Subjects</span>
+          <a href="/pdfs/SEM4" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+
+      <!-- Semester 5 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">⚡ Semester 5</h2>
+          <p class="card-subtitle">Specialized IT domains and technologies</p>
+        </div>
+        <div class="card-body">
+          <p>Access materials for Semester 5 including Operating Systems, Computer Networks, and Software Engineering.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-accent">1 Subject Available</span>
+          <a href="/pdfs/SEM5" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+
+      <!-- Semester 6 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">🚀 Semester 6</h2>
+          <p class="card-subtitle">Advanced topics and project work</p>
+        </div>
+        <div class="card-body">
+          <p>Materials for Semester 6 covering emerging technologies and capstone projects.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-secondary">3 Subjects</span>
+          <a href="/pdfs/SEM6" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+
+      <!-- Semester 7 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">🎯 Semester 7</h2>
+          <p class="card-subtitle">Professional development and electives</p>
+        </div>
+        <div class="card-body">
+          <p>Advanced topics including Information Security, Software Project Management, and Deep Learning.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-secondary">3 Subjects</span>
+          <a href="/pdfs/SEM7" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+
+      <!-- Semester 8 Card -->
+      <div class="card semester-card">
+        <div class="card-header">
+          <h2 class="card-title">🏆 Semester 8</h2>
+          <p class="card-subtitle">Capstone and entrepreneurship</p>
+        </div>
+        <div class="card-body">
+          <p>Final semester covering Distributed Systems and Startup ecosystem development.</p>
+        </div>
+        <div class="card-footer">
+          <span class="badge badge-secondary">2 Subjects</span>
+          <a href="/pdfs/SEM8" class="btn btn-primary">View Materials</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h3 class="card-title">🎯 Quick Access</h3>
+        <div class="flex gap-2 justify-center mt-2">
+          <a href="/" class="btn btn-secondary">← Back to Home</a>
+          <a href="/login" class="btn btn-primary">👨‍💼 Admin Panel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

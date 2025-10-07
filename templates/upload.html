@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Study Material - SPPU Study Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Enhanced Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">
+        <div class="navbar-logo-icon">📚</div>
+        <div class="navbar-logo-text">StudyPortal</div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="/" class="navbar-link">Home</a></li>
+        <li><a href="/semesters" class="navbar-link">Browse Materials</a></li>
+        <li><a href="/pdfs" class="navbar-link">All PDFs</a></li>
+        <li><a href="/logout" class="navbar-link">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Upload Section -->
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-body">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem auto;">📤</div>
+          <h1 class="card-title">Upload Study Material</h1>
+          <p class="card-subtitle">Add new study materials for SPPU IT students</p>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" style="max-width: 500px; margin: 0 auto;">
+          <div class="form-group">
+            <label for="semester" class="form-label">Select Semester</label>
+            <select id="semester" name="semester" class="form-input" required>
+              <option value="">-- Select Semester --</option>
+              <option value="SEM1">Semester 1</option>
+              <option value="SEM2">Semester 2</option>
+              <option value="SEM3">Semester 3</option>
+              <option value="SEM4">Semester 4</option>
+              <option value="SEM5">Semester 5</option>
+              <option value="SEM6">Semester 6</option>
+              <option value="SEM7">Semester 7</option>
+              <option value="SEM8">Semester 8</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Select Subject</label>
+            <select id="subject" name="subject" class="form-input" required>
+              <option value="">-- Select Subject --</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="pdf" class="form-label">Choose PDF File</label>
+            <input type="file" name="pdf" id="pdf" class="form-input" accept="application/pdf" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full" style="margin-top: 1.5rem;">
+            🚀 Upload Material
+          </button>
+        </form>
+
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border); text-align: center;">
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+            💡 Upload PDF files for subjects to help students access study materials
+          </p>
+          <div class="flex gap-2 justify-center">
+            <a href="/semesters" class="btn btn-secondary">← Browse Materials</a>
+            <a href="/pdfs" class="btn btn-secondary">View All PDFs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const subjects = {
+      "SEM1": ["M1", "Physics", "BEE", "FPL", "EG"],
+      "SEM2": ["Chemistry", "EM", "M2", "PPS", "BXE"],
+      "SEM3": ["DM", "LDCO", "DSA", "OOPS", "BCN"],
+      "SEM4": ["M3", "PA", "DBMS", "CG", "SE"],
+      "SEM5": ["OS", "TOC", "ML", "HCI", "ADMBS"],
+      "SEM6": ["CNS", "DSBDA", "WAD"],
+      "SEM7": ["ISR", "SPM", "DL", "Mobile Computing", "Wireless Communication"],
+      "SEM8": ["DS", "STARTUP", "Blockchain Technology", "NLP"]
+    };
+
+    const semesterSelect = document.getElementById("semester");
+    const subjectSelect = document.getElementById("subject");
+
+    semesterSelect.addEventListener("change", function () {
+      const selectedSemester = this.value;
+      subjectSelect.innerHTML = "<option value=''>-- Select Subject --</option>"; // reset
+
+      if (subjects[selectedSemester]) {
+        subjects[selectedSemester].forEach(sub => {
+          const opt = document.createElement("option");
+          opt.value = sub;
+          opt.textContent = sub;
+          subjectSelect.appendChild(opt);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

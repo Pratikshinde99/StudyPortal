@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search | SPPU Study Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <a href="/" class="brand">
+        <div class="logo">SP</div>
+        <div>
+          <div class="title">SPPU Study Portal</div>
+          <div class="subtitle">Syllabus • Notes • Papers</div>
+        </div>
+      </a>
+      <div class="actions">
+        <a href="/" class="btn">⬅ Back</a>
+      </div>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="hero">
+      <form method="POST" class="search-wrap">
+        <div class="search">
+          <input type="text" name="keyword" placeholder="Search by subject..." required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </section>
+
+    <!-- Search Results -->
+    {% if results %}
+    <section class="grid">
+      {% for file in results %}
+      <div class="card">
+        <h3>{{ file.filename }}</h3>
+        <p>{{ file.subject }}</p>
+        <div class="meta">
+          <span class="badge badge-{{ file.category }}">{{ file.category|capitalize }}</span>
+        </div>
+        <div class="card-actions">
+          <a href="/download/{{ file._id }}" class="btn btn-primary">⬇ Download</a>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <footer class="footer">
+      © {{ 2025 }} SPPU Study Portal — Made with Flask + MongoDB
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,660 @@
+/* =============================================
+   🎓 Study Material Portal - Enhanced Dark Theme
+   Perfect for Students | Modern UI/UX
+   ============================================= */
+
+/* -----------------------------
+   🎨 Enhanced Dark Theme Variables
+   ----------------------------- */
+:root {
+  /* 🌙 Dark Theme Colors - Perfect for Students */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #1a1a24;
+  --bg-hover: #242432;
+  --bg-navbar: #0f0f15;
+
+  /* 🎨 Accent Colors - Study-Friendly */
+  --primary: #6366f1;        /* Indigo - Focus & Learning */
+  --primary-hover: #5855eb;
+  --secondary: #14b8a6;      /* Teal - Calm & Balance */
+  --secondary-hover: #0f766e;
+  --accent: #f59e0b;         /* Amber - Energy & Motivation */
+  --accent-hover: #d97706;
+
+  /* 📝 Text Colors - Easy on Eyes */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #fbbf24;
+
+  /* ✨ Effects */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 40px rgba(99, 102, 241, 0.15);
+  --shadow-card: 0 4px 25px rgba(0, 0, 0, 0.2);
+
+  /* 📐 Layout */
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 20px;
+  --max-width: 1200px;
+  --gap-sm: 0.75rem;
+  --gap-md: 1.25rem;
+  --gap-lg: 2rem;
+
+  /* 🔤 Typography */
+  --font-primary: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* 🌟 Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   🎯 Enhanced Navbar
+   ================================ */
+.navbar {
+  background: linear-gradient(135deg, var(--bg-navbar) 0%, rgba(15, 15, 21, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-soft);
+}
+
+.navbar-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.navbar-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.navbar-logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text-primary), var(--text-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: var(--gap-lg);
+  align-items: center;
+}
+
+.navbar-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: var(--text-primary);
+  background: var(--glass-bg);
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 80%;
+}
+
+/* ================================
+   🏠 Enhanced Welcome Section
+   ================================ */
+.welcome-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-lg);
+  background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1), transparent 70%);
+}
+
+.welcome-content {
+  max-width: var(--max-width);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.welcome-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: var(--gap-md);
+  background: linear-gradient(135deg, var(--text-primary), var(--text-accent), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--gap-lg);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.welcome-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-hover);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.welcome-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+}
+
+/* ================================
+   📚 Enhanced Card Design
+   ================================ */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: var(--gap-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.card-header {
+  margin-bottom: var(--gap-md);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--gap-sm);
+}
+
+.card-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.card-body {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.card-footer {
+  margin-top: var(--gap-md);
+  padding-top: var(--gap-md);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================================
+   🔘 Enhanced Buttons
+   ================================ */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.btn-icon {
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* ================================
+   📱 Enhanced Layout
+   ================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gap-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap-lg);
+  margin: var(--gap-lg) 0;
+}
+
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) { .grid-4, .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+/* ================================
+   🎭 Enhanced Animations
+   ================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* ================================
+   📋 Enhanced Forms
+   ================================ */
+.form-group {
+  margin-bottom: var(--gap-md);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--gap-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  background: var(--bg-hover);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ================================
+   🏷️ Enhanced Badges & Tags
+   ================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-primary {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+}
+
+.badge-secondary {
+  background: rgba(20, 184, 166, 0.15);
+  color: var(--secondary);
+}
+
+.badge-accent {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent);
+}
+
+/* ================================
+   📊 Enhanced Tables
+   ================================ */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.table th {
+  background: var(--bg-hover);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.table tr:hover td {
+  background: var(--glass-bg);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================================
+   ⚡ Enhanced Utilities
+   ================================ */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-1 { margin-bottom: var(--gap-sm); }
+.mb-2 { margin-bottom: var(--gap-md); }
+.mb-3 { margin-bottom: var(--gap-lg); }
+
+.mt-1 { margin-top: var(--gap-sm); }
+.mt-2 { margin-top: var(--gap-md); }
+.mt-3 { margin-top: var(--gap-lg); }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: var(--gap-sm); }
+.gap-2 { gap: var(--gap-md); }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* ================================
+   📱 Mobile Responsive
+   ================================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    gap: var(--gap-md);
+  }
+
+  .welcome-title {
+    font-size: 2.5rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 var(--gap-sm);
+  }
+
+  .card {
+    padding: var(--gap-md);
+  }
+
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ================================
+   🎨 Focus & Accessibility
+   ================================ */
+.btn:focus,
+.navbar-link:focus,
+.form-input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ================================
+   🌟 Loading & States
+   ================================ */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--glass-border);
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ================================
+   📚 Study-Specific Enhancements
+   ================================ */
+.subject-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--glass-bg));
+  border-left: 4px solid var(--primary);
+}
+
+.semester-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--glass-bg));
+  border-left: 4px solid var(--secondary);
+}
+
+.pdf-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--glass-bg));
+  border-left: 4px solid var(--accent);
+}
+
+.subject-card:hover {
+  border-left-color: var(--primary-hover);
+}
+
+.semester-card:hover {
+  border-left-color: var(--secondary-hover);
+}
+
+.pdf-card:hover {
+  border-left-color: var(--accent-hover);
+}
+
+/* ================================
+   🎯 Dark Mode Perfection
+   ================================ */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Light theme adjustments for better contrast */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-hover: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+  }
+}
+
+/* ================================
+   ✨ Final Touches
+   ================================ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - SPPU Study Material Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Enhanced Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">
+        <div class="navbar-logo-icon">📚</div>
+        <div class="navbar-logo-text">StudyPortal</div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="/" class="navbar-link">Home</a></li>
+        <li><a href="/semesters" class="navbar-link">Browse Materials</a></li>
+        <li><a href="/login" class="navbar-link">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Login Section -->
+  <main class="container mt-3">
+    <div class="flex items-center justify-center" style="min-height: calc(100vh - 120px);">
+      <div class="card" style="max-width: 400px; width: 100%;">
+        <div class="card-body text-center">
+          <div style="margin-bottom: 2rem;">
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem auto;">🔐</div>
+            <h1 class="card-title">Admin Access</h1>
+            <p class="card-subtitle">Login to manage study materials and upload content</p>
+          </div>
+
+          <form method="POST" action="/login" style="text-align: left;">
+            <div class="form-group">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" name="username" id="username" class="form-input" placeholder="Enter admin username" required>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" name="password" id="password" class="form-input" placeholder="Enter admin password" required>
+            </div>
+
+            {% if error %}
+              <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #ef4444; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem;">
+                ❌ {{ error }}
+              </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary w-full" style="margin-top: 1.5rem; padding: 1rem;">
+              🚀 Login to Admin Panel
+            </button>
+          </form>
+
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border);">
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              🔒 Secure admin access for content management
+            </p>
+            <div class="flex gap-1 justify-center mt-1">
+              <a href="/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">← Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

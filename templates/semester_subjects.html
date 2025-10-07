@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ semester_name }} - SPPU Study Material Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Enhanced Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/" class="navbar-logo">
+        <div class="navbar-logo-icon">📚</div>
+        <div class="navbar-logo-text">StudyPortal</div>
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="/" class="navbar-link">Home</a></li>
+        <li><a href="/semesters" class="navbar-link">Browse Materials</a></li>
+        <li><a href="/login" class="navbar-link">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h1 class="card-title">📖 {{ semester_name }}</h1>
+        <p class="card-subtitle">Select a subject to view available study materials</p>
+        <div class="flex gap-2 justify-center mt-2">
+          <a href="/semesters" class="btn btn-secondary">← Back to Semesters</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subject Cards Grid -->
+  <div class="container">
+    <div class="grid grid-3">
+      {% for subject in subjects %}
+        <div class="card subject-card">
+          <div class="card-header">
+            <h3 class="card-title">{{ subject }}</h3>
+            <p class="card-subtitle">{{ semester_name }} Subject</p>
+          </div>
+          <div class="card-body">
+            <p>Access study materials and resources for {{ subject }}</p>
+          </div>
+          <div class="card-footer">
+            {% if subject_files.get(subject, 0) > 0 %}
+              <span class="badge badge-accent">{{ subject_files[subject] }} Files Available</span>
+              <a href="/pdfs/{{ semester }}/{{ subject }}" class="btn btn-primary">View Materials</a>
+            {% else %}
+              <span class="badge badge-secondary">No Files Yet</span>
+              <button class="btn btn-secondary" disabled>Coming Soon</button>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h3 class="card-title">🎯 Quick Actions</h3>
+        <div class="flex gap-2 justify-center mt-2">
+          <a href="/semesters" class="btn btn-secondary">← All Semesters</a>
+          <a href="/login" class="btn btn-primary">👨‍💼 Admin Panel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
